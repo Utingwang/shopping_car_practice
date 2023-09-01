@@ -1,6 +1,29 @@
+* {
+    list-style: none;
+}
+
 #app {
-    display: flex;
-    flex: wrap;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 30px;
+    width: 100%;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 24px;
+}
+
+.commodity {
+    width: 70%;
+    margin: auto;
 }
 
 .title {
@@ -14,7 +37,14 @@
     align-items: center;
 }
 
-.commodity .item {}
+.commodity .item {
+    margin-top: 30px;
+}
+
+input {
+    width: 40%;
+    height: 40px;
+}
 
 .commodity .item div {
     width: 20%;
@@ -30,7 +60,19 @@
 }
 
 .commodity button {
-    background-color: aqua;
-    width: 60px;
+    width: 40px;
     height: 40px;
+}
+
+.commodity .price {
+    text-align: center;
+}
+
+.commodity .XX {
+    text-align: center;
+    font-size: 24px;
+}
+
+li {
+    text-align: right;
 }

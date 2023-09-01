@@ -16,15 +16,12 @@
                 <h1>shopping list</h1>
             </div>
             <div class="shopList">
-                <div class="item" v-for="(item,index) in navItem" key="index">
+                <div class="item" v-for="(item,index) in navItem" :key="index">
                     <div>
                         <img :src="item.imgSrc">
                     </div>
                     <div>
                         <h2>{{item.producrName}}</h2>
-                    </div>
-                    <div class="prince">
-                        <p>{{item.price}}</p>
                     </div>
                     <div class="count">
                         <button @click="decrease(item)">-</button>
@@ -32,7 +29,10 @@
                         <button @click="
                         increase(item)">+</button>
                     </div>
-                    <div>X</div>
+                    <div class="price">
+                        <p>{{item.price}}</p>
+                    </div>
+                    <button class="XX" @click="deleteProduct(index)">X</button>
                 </div>
             </div>
         </article>
@@ -42,7 +42,6 @@
                 <li>
                     <h2>總計:{{total}}</h2>
                 </li>
-                <li></li>
             </ul>
         </article>
     </div>
@@ -56,18 +55,21 @@
                 return {
                     navItem: [
                         {
+                            id: '1',
                             imgSrc: '9780545139700.jpg',
                             producrName: 'Harry Potter 7',
                             price: 100,
                             count: initalCount,
                         },
                         {
+                            id: '2',
                             imgSrc: '2018730554791b.jpg',
                             producrName: 'Harry Potter 8',
                             price: 200,
                             count: initalCount,
                         },
                         {
+                            id: '3',
                             imgSrc: '2018730517659b.jpg',
                             producrName: 'Harry Potter 3',
                             price: 300,
@@ -91,6 +93,9 @@
                 },
                 increase(item) {
                     item.count++;
+                },
+                deleteProduct(index) {
+                    this.navItem.splice(index, 1);
                 }
             }
         }).mount("#app");
