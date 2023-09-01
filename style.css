@@ -1,0 +1,36 @@
+#app {
+    display: flex;
+    flex: wrap;
+}
+
+.title {
+    font-size: 16px;
+}
+
+.commodity .item,
+.commodity .count {
+    display: flex;
+    flex: wrap;
+    align-items: center;
+}
+
+.commodity .item {}
+
+.commodity .item div {
+    width: 20%;
+}
+
+.commodity .item img {
+    width: 100%;
+    vertical-align: sub;
+}
+
+.commodity .count {
+    justify-content: space-evenly;
+}
+
+.commodity button {
+    background-color: aqua;
+    width: 60px;
+    height: 40px;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="app">
+        <article class="commodity">
+            <div class="title">
+                <h1>shopping list</h1>
+            </div>
+            <div class="shopList">
+                <div class="item" v-for="(item,index) in navItem" key="index">
+                    <div>
+                        <img :src="item.imgSrc">
+                    </div>
+                    <div>
+                        <h2>{{item.producrName}}</h2>
+                    </div>
+                    <div class="prince">
+                        <p>{{item.price}}</p>
+                    </div>
+                    <div class="count">
+                        <button @click="decrease(item)">-</button>
+                        <input type="number" v-model="item.count" class="count">
+                        <button @click="
+                        increase(item)">+</button>
+                    </div>
+                    <div>X</div>
+                </div>
+            </div>
+        </article>
+
+        <article>
+            <ul>
+                <li>
+                    <h2>總計:{{total}}</h2>
+                </li>
+                <li></li>
+            </ul>
+        </article>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                const initalCount = 0;
+                const initaltptal = 0;
+                return {
+                    navItem: [
+                        {
+                            imgSrc: '9780545139700.jpg',
+                            producrName: 'Harry Potter 7',
+                            price: 100,
+                            count: initalCount,
+                        },
+                        {
+                            imgSrc: '2018730554791b.jpg',
+                            producrName: 'Harry Potter 8',
+                            price: 200,
+                            count: initalCount,
+                        },
+                        {
+                            imgSrc: '2018730517659b.jpg',
+                            producrName: 'Harry Potter 3',
+                            price: 300,
+                            count: initalCount,
+                        }
+                    ]
+                }
+            },
+            computed: {
+                total() {
+                    return this.navItem.reduce((sum, item) => {
+                        return sum + (item.price * item.count);
+                    }, 0);
+                }
+            },
+            methods: {
+                decrease(item) {
+                    if (item.count > 0) {
+                        item.count--;
+                    }
+                },
+                increase(item) {
+                    item.count++;
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>
