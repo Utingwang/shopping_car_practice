@@ -26,8 +26,7 @@
                     <div class="count">
                         <button @click="decrease(item)">-</button>
                         <input type="number" v-model="item.count" class="count">
-                        <button @click="
-                        increase(item)">+</button>
+                        <button @click="increase(item)">+</button>
                     </div>
                     <div class="price">
                         <p>{{item.price}}</p>
@@ -39,6 +38,9 @@
 
         <article>
             <ul>
+                <li>
+                    <p class="btn" @click="usernumber(btn)">提交</p>
+                </li>
                 <li>
                     <h2>總計:{{total}}</h2>
                 </li>
@@ -96,7 +98,13 @@
                 },
                 deleteProduct(index) {
                     this.navItem.splice(index, 1);
-                }
+                },
+                usernumber(btn) {
+                    if (this.total <= 0) {
+                        alert("錯誤，金額要大於零")
+                    }
+                },
+
             }
         }).mount("#app");
     </script>
